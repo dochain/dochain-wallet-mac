@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+    .ng-animate.item:not(.left):not(.right) {
+        -webkit-transition: 0s ease-in-out left;
+        transition: 0s ease-in-out left
+    }
+    </style>
+    <style type="text/css">
+    @charset "UTF-8";
+    [ng\:cloak],
+    [ng-cloak],
+    [data-ng-cloak],
+    [x-ng-cloak],
+    .ng-cloak,
+    .x-ng-cloak,
+    .ng-hide:not(.ng-hide-animate) {
+        display: none !important;
+    }
+    ::selection {
+      background:rgba(255, 255, 125, 0.99);
+      color:#032764;
+    }
+    </style>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>域链钱包</title>
+
+    <% if (htmlWebpackPlugin.options.nodeModules) { %>
+      <!-- Add `node_modules/` to global paths so `require` works properly in development -->
+      <script>
+        require('module').globalPaths.push('<%= htmlWebpackPlugin.options.nodeModules.replace(/\\/g, '\\\\') %>')
+      </script>
+    <% } %>
+  </head>
+  <body ng-class="bodyClassStr" style="position: static;" class="state-app state-app_wallet state-app_wallet_receive state-app_wallet_summary">
+    <div class="base-view ng-scope">
+        <div id="app"></div>
+    </div>
+    <!-- Set `__static` path to static files in production -->
+    <script>
+      if (process.env.NODE_ENV !== 'development') window.__static = require('path').join(__dirname, '/static').replace(/\\/g, '\\\\')
+      require('electron')
+
+      // const {webFrame} = require('electron')
+      // webFrame.setZoomFactor(0.5)
+      // 发送通信当
+    </script>
+    <!-- webpack builds are automatically injected -->
+  </body>
+</html>
